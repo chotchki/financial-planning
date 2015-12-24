@@ -1,0 +1,15 @@
+{
+    "name": "financial-planning",
+    "version": "1.0.0",
+    "description": "A long financial planning application.",
+    "author": "Christopher Hotchkiss <christopher.hotchkiss@gmail.com>",
+    "contributors": [{
+        "name": "Alicea MacKellar",
+        "email": "aliceamackellar@gmail.com"
+    }],
+    "private": true,
+    "license": "Unlicense",
+    "devDependencies": {
+        "browser-sync": "^2.10.0"
+    }
+}
