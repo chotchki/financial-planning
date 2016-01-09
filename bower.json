@@ -1,0 +1,24 @@
+{
+  "name": "kidMarket",
+  "description": "A simulated kid market for the trading of naughty kids.",
+  "main": "",
+  "authors": [
+    "Christopher Hotchkiss <christopher.hotchkiss@gmail.com>"
+  ],
+  "license": "Unlicense",
+  "homepage": "https://github.com/chotchki/kidMarket",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "font-awesome": "fontawesome#~4.5.0",
+    "bootswatch": "~3.3.6"
+  }
+}

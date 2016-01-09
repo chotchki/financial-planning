@@ -1,13 +1,18 @@
 var gulp = require('gulp'),
     bower = require('gulp-bower'),
+    browserify = require('browserify'),
     browserSync = require('browser-sync').create(),
-    sass = require('gulp-sass')
-    sourcemaps = require('gulp-sourcemaps');
+    buffer = require('vinyl-buffer'),
+    gutil = require('gulp-util'),
+    sass = require('gulp-sass'),
+    source = require('vinyl-source-stream'),
+    sourcemaps = require('gulp-sourcemaps'),
+    uglify = require('gulp-uglify');
 
 var config = {
     appDir: './app',
-    sassPath: './app/scss/*.scss',
-    bowerDir: './bower_components'
+    bowerDir: './bower_components',
+    sassPath: './app/scss/*.scss'
 };
 
 var reload = browserSync.reload;
@@ -24,13 +29,20 @@ gulp.task('icons', function(){
         .pipe(gulp.dest(config.appDir + '/fonts'));
 });
 
+gulp.task('javascript', function(){
+    var b = browserify({
+        entries: './'
+    });
+})
+
 gulp.task('sass', function(){
     return gulp.src(config.sassPath)
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: [
                 config.bowerDir + '/bootstrap-sass/assets/stylesheets',
-                config.bowerDir + '/font-awesome/scss'
+                config.bowerDir + '/font-awesome/scss',
+                config.bowerDir
             ],
             precision: 8
             }).on('error', sass.logError)
@@ -46,7 +58,7 @@ gulp.task('browser-sync', function() {
         server: {
             baseDir: './app'
         },
-        files: ['./app/*.html', './app/js/*.js', './app/styles/*.css'],
+        files: ['./app/*.html', './app/**/*.html', './app/**/*.js', './app/styles/*.css'],
         reloadOnRestart: true
     });
 });

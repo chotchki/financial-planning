@@ -1,19 +1,29 @@
 {
-    "name": "financial-planning",
-    "version": "1.0.0",
-    "description": "A long financial planning application.",
-    "author": "Christopher Hotchkiss <christopher.hotchkiss@gmail.com>",
-    "contributors": [{
-        "name": "Alicea MacKellar",
-        "email": "aliceamackellar@gmail.com"
-    }],
-    "private": true,
-    "license": "Unlicense",
-    "devDependencies": {
-        "browser-sync": "^2.10.0",
-        "gulp": "^3.9.0",
-        "gulp-bower": "0.0.11",
-        "gulp-sass": "^2.1.0",
-        "gulp-sourcemaps": "^1.6.0"
+  "name": "financial-planning",
+  "version": "1.0.0",
+  "description": "A long financial planning application.",
+  "author": "Christopher Hotchkiss <christopher.hotchkiss@gmail.com>",
+  "contributors": [
+    {
+      "name": "Alicea MacKellar",
+      "email": "aliceamackellar@gmail.com"
     }
+  ],
+  "private": true,
+  "license": "Unlicense",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-bower": "0.0.11",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "bootswatch": "^3.3.6"
+  }
 }
