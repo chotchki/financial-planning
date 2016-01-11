@@ -19,8 +19,7 @@ var reload = browserSync.reload;
 
 //Get all the deps if we don't have them already
 gulp.task('bower', function(){
-    return bower()
-        .pipe(gulp.dest(config.bowerDir));
+    return bower().pipe(gulp.dest(config.bowerDir));
 });
 
 //Install all of the fontawesome icons
@@ -30,10 +29,16 @@ gulp.task('icons', function(){
 });
 
 gulp.task('javascript', function(){
-    var b = browserify({
-        entries: './'
-    });
-})
+    gulp.src([
+            config.bowerDir + '/angular/angular.js',
+            config.bowerDir + '/angular-ui-router/release/angular-ui-router.js'
+            ])
+        .pipe(gulp.dest(config.appDir + '/vendor'));
+
+    //var b = browserify({
+    //    entries: './'
+    //});
+});
 
 gulp.task('sass', function(){
     return gulp.src(config.sassPath)
@@ -52,7 +57,6 @@ gulp.task('sass', function(){
         .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
-
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
@@ -63,7 +67,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('default', ['bower', 'icons', 'sass', 'browser-sync'], function() {
+gulp.task('default', ['bower', 'icons', 'javascript', 'sass', 'browser-sync'], function() {
     gulp.watch(['scss/*.scss'], {cwd: 'app'}, ['sass']);
 
 });

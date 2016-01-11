@@ -3,6 +3,7 @@
 var financialPlanning = angular.module('financialPlanning', [
 	'ui.router',
 	'inflationSettingDirective',
+	'lifeExpectancySettingDirective',
 	'topNavigationDirective']);
 
 financialPlanning.config(function($stateProvider, $urlRouterProvider){

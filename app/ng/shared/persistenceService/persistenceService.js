@@ -7,21 +7,26 @@ var persistenceService = angular.module('persistenceService', []);
  * saves all data to local storage, long term may be replaced with
  * a remote storage.
  */
-persistenceService.factory('persistService', [function(){
-	var persistService = {};
+persistenceService.factory('persistenceSrv', [function(){
+	var persistenceSrv = {};
 
-	persistService.get = function(key){
-		return localStorage.getItem(key);
+	persistenceSrv.get = function(key, defaultVal){
+		var val = localStorage.getItem(key);
+		if(val == null){
+			this.set(defaultVal);
+			return defaultVal;
+		}
+		return val;
 	};
 
-	persistService.set = function(key, value){
+	persistenceSrv.set = function(key, value){
 		localStorage.setItem(key, value);
 	};
 
-	persistService.remove = function(key){
+	persistenceSrv.remove = function(key){
 		localStorage.removeItem(key);
 	}
 
-	return persistService;
+	return persistenceSrv;
 }]);
 

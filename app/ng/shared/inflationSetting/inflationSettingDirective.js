@@ -1,15 +1,11 @@
 "use strict";
 
-angular.module('inflationSettingDirective', ['persistenceService'])
-.controller('inflationSettingCtrl', ['$scope', 'persistService', function($scope, persistService){
-	var currentRate = persistService.get('inflation');
-	if (currentRate == null) {
-		currentRate = 2;
-	}
-	$scope.rate = currentRate;
+angular.module('inflationSettingDirective', ['inflationService'])
+.controller('inflationSettingCtrl', ['$scope', 'inflationSrv', function($scope, inflationSrv){
+	$scope.rate = inflationSrv.get();
 	$scope.$watch('rate', function(newValue, oldValue){
-		var _p = persistService;
-		_p.set('inflation', newValue);
+		var _i = inflationSrv;
+		_i.set(newValue);
 	}, true);
 }])
 .directive('inflationSetting', function(){
