@@ -2,9 +2,6 @@
 
 var lifeExpectancyService = angular.module('lifeExpectancyService', ['persistenceService']);
 
-/**
- * Inflation is modelled and stored as a single percentage.
- */
 lifeExpectancyService.factory('lifeExpectancySrv', ['persistenceSrv', function(persistenceSrv){
 	var lS = {};
 
@@ -25,4 +22,3 @@ lifeExpectancyService.factory('lifeExpectancySrv', ['persistenceSrv', function(p
 
 	return lS;
 }]);
-
